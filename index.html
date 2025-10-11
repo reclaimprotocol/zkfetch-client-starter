@@ -14,7 +14,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <script src="/browser-rpc/resources/snarkjs/snarkjs.min.js"></script>
+    <script src="/browser-rpc/js/snarkjs.min.js"></script>
     </script>
     <script type="module">
 		import * as zkFetch from './public/browser-rpc/js/zkfetch-browser.min.mjs'
@@ -22,10 +22,6 @@
 		zkFetch.setupWindowRpc()
 	</script>
 	<script>
-		// hot fix for missing assert in browser environment
-		window.addEventListener('load', function (event) {
-			console.assert = (...log) => { }
-		})
 	</script>
     <script type="module" src="/src/main.jsx"></script>
   </body>

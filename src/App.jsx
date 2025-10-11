@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { JsonEditor } from 'json-edit-react'
-const { ReclaimClient } = window.module.exports;
+const { ReclaimClient } = window.zkFetch;
 
 function Claim() {
   const [claimResult, setClaimResult] = useState(null);
@@ -35,6 +35,9 @@ function Claim() {
           type: 'regex',
           value: 'ethereum":{"usd":(?<price>.*?)}}',
       }], 
+      responseRedactions: [{
+        'regex': 'ethereum":{"usd":(?<price>.*?)}}'
+      }]
     })
       setProofGenerating(false);
       setClaimResult(claim);
